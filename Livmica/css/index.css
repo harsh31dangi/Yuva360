@@ -1,0 +1,119 @@
+/* Header Styling */
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+}
+
+.logo img {
+  width: 30%;  
+  max-width: 200px; 
+  min-width: 100px; 
+}
+
+/* Product Code Banner */
+.product-code-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.product-code {
+  font-size: 32px;
+  font-weight: bolder;
+  color: #212529;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo img {
+      width: 50%; 
+  }
+}
+
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.sheet-img{
+  height: 410px !important;
+}
+
+.section a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .container {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .section {
+      width: 30%;
+  }
+
+  table {
+      width: auto;
+  }
+}
