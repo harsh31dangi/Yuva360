@@ -11,8 +11,15 @@
     <script>
         window.onload = function () {
             var { clientName, identifier } = getPathSegments();
-            if(!clientName) clientName='Client1';
-            if(!identifier) identifier='9045';
+            console.log({clientName, identifier})
+            if(!clientName) {
+                console.log('!clientName');
+                clientName='Client1';
+            }
+            if(!identifier) {
+                console.log('!identifier');
+                identifier='9045';
+            } 
             const url = `/html/360view.html?${clientName}&${identifier}`
             document.getElementById("anchor").href = url;
         };
