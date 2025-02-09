@@ -25,7 +25,7 @@
         };
 
         function getPathSegments() {
-            const params = window.location.search.substring(1).split('/');
+            const params = window.location.search.substring(1).split('&');
             return {
                 clientName: params[0],  // First part of the path
                 identifier: params[1]   // Second part of the path
