@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Design</title>
+    <base href="/html/">
     <!-- Link css -->
-     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script>
+        window.onload = function () {
+            var { clientName, identifier } = getPathSegments();
+            if(!clientName) clientName='Client1';
+            if(!identifier) identifier='9045';
+            const url = `/html/360view.html?${clientName}&${identifier}`
+            document.getElementById("anchor").href = url;
+        };
+
+        function getPathSegments() {
+            const params = window.location.search.substring(1).split('/');
+            return {
+                clientName: params[0],  // First part of the path
+                identifier: params[1]   // Second part of the path
+            };
+        }
+    </script>
 </head>
+
 <body>
     <header class="header">
         <div class="logo">
@@ -21,7 +41,7 @@
     <div class="container">
         <div class="section">
             <h2>360° VIEW</h2>
-            <a href="VideoView.html" target="_blank">
+            <a target="_blank" id="anchor">
                 <img src="../img/360Logo.png" alt="360 View">
                 <p>TOUCH HERE TO SEE 360° VIEW</p>
             </a>
@@ -59,4 +79,5 @@
         </div>
     </div>
 </body>
+
 </html>

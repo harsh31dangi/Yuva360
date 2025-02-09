@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Viewer</title>
+    <link rel="stylesheet" href="../js/pannellum.css" />
+    <script type="text/javascript" src="../js/pannellum.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        cursor: default;
+    }
+
+    #panorama {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div id="panorama"></div>
+</body>
+<script>
+    window.onload = function () {
+        const { clientName, identifier } = getPathSegments();
+        console.log({clientName, identifier})
+        loadImageFromS3(clientName, identifier);
+
+        if (clientName && identifier) {
+            var dynamicUrl = "/yuva360/" + clientName + "/" + identifier;  // New URL
+            // Update the URL in the address bar without reloading the page
+            history.pushState({}, "", dynamicUrl);
+        }
+    };
+
+    function getPathSegments() {
+        const params = window.location.search.substring(1).split('&');
+        return {
+            clientName: params[0],  // First part of the path
+            identifier: params[1]   // Second part of the path
+        };
+    }
+
+    function loadImageFromS3(client, identifier) {
+        const imageUrl = `https://yuva360view-test1.s3.ap-south-1.amazonaws.com/${client}/${identifier}.png`; // S3 URL
+        pannellum.viewer('panorama', {
+            "panorama": imageUrl,
+            "autoLoad": true,
+            "autoRotate": -2
+        });
+    }
+    
+
+</script>
+
+</html>
