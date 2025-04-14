@@ -50,7 +50,7 @@
     }
 
     function loadImageFromS3(client, identifier) {
-        const imageUrl = `https://yuva360view-test1.s3.ap-south-1.amazonaws.com/${client}/${identifier}.png`; // S3 URL
+        const imageUrl = `https://yuva360.s3.ap-south-1.amazonaws.com/${client}/${identifier}.png`; //S3 URL
         pannellum.viewer('panorama', {
             "panorama": imageUrl,
             "autoLoad": true,
